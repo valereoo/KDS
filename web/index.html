@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meiosis Phase Classifier</title>
+    <meta
+      name="description"
+      content="Classify meiotic phases from microscopy images using OpenCV spatial features and a Random Forest model."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0f172a;
+        --card: #1e293b;
+        --text: #f8fafc;
+        --muted: #94a3b8;
+        --accent: #6366f1;
+        --accent-hover: #818cf8;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "DM Sans", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        line-height: 1.6;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+      h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.02em;
+      }
+      .lead {
+        color: var(--muted);
+        font-size: 1.125rem;
+        margin-bottom: 2rem;
+      }
+      .card {
+        background: var(--card);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.25rem;
+      }
+      .card h2 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      .card p {
+        color: var(--muted);
+        font-size: 0.9375rem;
+      }
+      a.btn {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 0.75rem 1.5rem;
+        background: var(--accent);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background 0.15s;
+      }
+      a.btn:hover {
+        background: var(--accent-hover);
+      }
+      a.btn.secondary {
+        background: transparent;
+        border: 1px solid var(--muted);
+        margin-left: 0.75rem;
+      }
+      a.btn.secondary:hover {
+        border-color: var(--text);
+        background: var(--card);
+      }
+      footer {
+        margin-top: 3rem;
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
+      code {
+        background: #334155;
+        padding: 0.15em 0.4em;
+        border-radius: 4px;
+        font-size: 0.85em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Meiosis Phase Classifier</h1>
+      <p class="lead">
+        Upload microscopy images, extract OpenCV spatial features, and predict
+        meiotic phase with a trained Random Forest model.
+      </p>
+
+      <div class="card">
+        <h2>Live app (Streamlit)</h2>
+        <p>
+          The interactive classifier runs on Streamlit Community Cloud. Replace
+          the link below with your deployed app URL after you publish.
+        </p>
+        <a
+          class="btn"
+          id="app-link"
+          href="https://share.streamlit.io"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open classifier
+        </a>
+      </div>
+
+      <div class="card">
+        <h2>Pipeline</h2>
+        <p>
+          Preprocess (CLAHE, denoise) → segment chromatin → detect spindle-like
+          lines → extract features → Random Forest prediction.
+        </p>
+      </div>
+
+      <a
+        class="btn secondary"
+        href="https://github.com/valereoo/KDS"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View on GitHub
+      </a>
+
+      <footer>
+        <p>
+          Deploy the landing page on Vercel; deploy the Streamlit app on
+          <a
+            href="https://streamlit.io/cloud"
+            style="color: var(--accent-hover)"
+            >Streamlit Cloud</a
+          >.
+        </p>
+      </footer>
+    </div>
+    <script>
+      // Set ?app=https://your-app.streamlit.app to override the default link
+      const params = new URLSearchParams(location.search);
+      const appUrl = params.get("app");
+      if (appUrl) {
+        const link = document.getElementById("app-link");
+        link.href = appUrl;
+      }
+    </script>
+  </body>
+</html>

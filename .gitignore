@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# IDE & OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
+.streamlit/secrets.toml
+
+# Training / evaluation artifacts (not needed for deployment)
+data/raw/
+data/processed/
+*.csv
+!data/README.md
+
+# Large model — use Git LFS (see models/README.md)
+# Uncomment if you host the model outside the repo:
+# models/*.joblib
+
+# Vercel
+.vercel
