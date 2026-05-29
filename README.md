@@ -12,7 +12,8 @@ Classify meiotic phases from microscopy images using OpenCV preprocessing, spati
 |------|--------|-----|
 | **Train / regenerate model** | Google Colab | [Open notebook in Colab](#1-train-the-model-google-colab-recommended) |
 | **Use the classifier (UI)** | Local or Streamlit Cloud | [Run the Streamlit app](#2-run-the-web-app-streamlit) |
-| **Landing page** | Vercel | [Deploy landing page](#4-deploy-landing-page-vercel) |
+
+**Live app:** [kdskelompok17.streamlit.app](https://kdskelompok17.streamlit.app/)
 
 ---
 
@@ -25,8 +26,7 @@ KDS/
 ├── models/                # Trained .joblib for the web app
 ├── app.py                 # Streamlit entry point
 ├── src/kds/               # App logic used by Streamlit
-├── requirements.txt
-└── web/                   # Static site for Vercel
+└── requirements.txt
 ```
 
 ---
@@ -125,11 +125,13 @@ streamlit run app.py
 
 Open the URL shown in the terminal (usually `http://localhost:8501`).
 
-### Streamlit Community Cloud (public demo)
+### Streamlit Community Cloud (deploy)
 
 1. Push this repo to GitHub (include the model via Git LFS, or upload it after first Colab run).
 2. Go to [share.streamlit.io](https://share.streamlit.io) → sign in with GitHub.
 3. **New app** → repository `valereoo/KDS` → **Main file:** `app.py` → Deploy.
+
+Deployed app: [https://kdskelompok17.streamlit.app/](https://kdskelompok17.streamlit.app/)
 
 ---
 
@@ -149,16 +151,6 @@ git push origin main
 
 - `env/`, `.venv/`, and large `*.csv` files in `data/` are gitignored by default.
 - Track `.joblib` with **Git LFS** (see `models/README.md`).
-
----
-
-## 4. Deploy landing page (Vercel)
-
-Vercel serves the static site in `web/`. The Streamlit app stays on Streamlit Cloud.
-
-1. Import [github.com/valereoo/KDS](https://github.com/valereoo/KDS) on [vercel.com](https://vercel.com).
-2. Framework: **Other** (static). `vercel.json` already points to `web/`.
-3. After Streamlit is live, set the **Open classifier** link in `web/index.html` to your Streamlit URL.
 
 ---
 

@@ -33,6 +33,3 @@ data/processed/
 # Large model — use Git LFS (see models/README.md)
 # Uncomment if you host the model outside the repo:
 # models/*.joblib
-
-# Vercel
-.vercel
