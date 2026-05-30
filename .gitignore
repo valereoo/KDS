@@ -27,7 +27,6 @@ Thumbs.db
 # Training / evaluation artifacts (not needed for deployment)
 data/raw/
 data/processed/
-*.csv
 !data/README.md
 
 # Large model — use Git LFS (see models/README.md)
